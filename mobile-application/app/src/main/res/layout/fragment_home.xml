@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Ericsson AB
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.HomeFragment">
+
+    <androidx.constraintlayout.widget.Group
+        android:visibility="gone"
+        android:id="@+id/nolockers_groups"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="nolockers_icon,nolockers_text" />
+
+    <ImageView
+        android:id="@+id/nolockers_icon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:maxWidth="50dp"
+        android:maxHeight="50dp"
+        android:src="@drawable/ic_baseline_plumbing_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"
+        app:tint="#6779B1" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/nolockers_text"
+        android:text="@string/no_lockers_found"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:textAlignment="center"
+        android:textColor="@color/primaryTextColor"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/nolockers_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:id="@+id/home_scroll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/active_rentals_some_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="0"
+                android:text="@string/active_rentals"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5" />
+
+            <TextView
+                android:id="@+id/active_rentals_none_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/no_active_rentals"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/active_rentals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:divider="@drawable/empty_divider"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <!-- these are text lockers, and eventually dynamically filled -->
+                <eu.sofie_iot.smaug.mobile.ui.views.LockerView
+                    android:id="@+id/test_locker_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:isFavourite="true"
+                    app:name="Locker Test First"
+                    app:text="Rent is active\nAvailable to 2.1.2020 00:00 (7 hours)" />
+
+                <eu.sofie_iot.smaug.mobile.ui.views.LockerView
+                    android:id="@+id/test_locker_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:name="Locker Test Second"
+                    app:text="Available at 12:00 (1h20m)\nRent length 2 hours (until 14:00)" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/nearby_available_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="0"
+                android:text="@string/nearby_lockers"
+                android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5" />
+
+            <LinearLayout
+                android:id="@+id/nearby_available"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:divider="@drawable/empty_divider"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

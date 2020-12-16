@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2020 Ericsson AB
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<resources>
+    <declare-styleable name="LockerView">
+        <attr name="icon" format="reference" />
+        <attr name="showIcon" format="boolean" />
+        <attr name="name" format="string" />
+        <attr name="isFavourite" format="boolean" />
+        <attr name="text" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="RentedLockerView" parent="LockerView">
+        <attr name="rentStart" format="string" />
+        <attr name="rentEnd" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="RentedUntilView">
+        <attr name="from" format="string" />
+        <attr name="until" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="LockerStatusView">
+        <attr name="status" format="string" /> <!-- closed|opened|was_closed|was_open|unknown -->
+        <attr name="statusTime" format="string" />
+        <!-- need to add text styling and other parameters later for various alert cases -->
+    </declare-styleable>
+
+    <declare-styleable name="PriceView">
+        <attr name="amount" format="string" />
+        <attr name="exchangeRate" format="float" />
+        <attr name="primary" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="HistoryView">
+        <attr name="collapsed" format="boolean" />
+    </declare-styleable>
+</resources>

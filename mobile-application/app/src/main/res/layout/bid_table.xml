@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Ericsson AB
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/payment_data_table"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="8dp"
+    app:layout_constraintTop_toBottomOf="@id/pending_short_description">
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/pb_labels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierMargin="5dp"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="pl_start,pl_end,pl_length,pl_tx_id,pl_tx_block,pl_tx_at"
+        tools:layout_editor_absoluteX="111dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pl_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pv_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1/1/2020 12:00 PM"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pb_labels"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="pl_start,pv_start"
+        app:layout_constraintTop_toBottomOf="@+id/pv_start" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pl_end"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="End"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barrier2" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pv_end"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1/1/2021 12:00 PM"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pb_labels"
+        app:layout_constraintTop_toTopOf="@+id/pl_end" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="pv_end,pl_end"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pl_length"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Length"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier3" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pv_length"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="160 minutes"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pb_labels"
+        app:layout_constraintTop_toTopOf="@+id/barrier3" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="pl_length,pv_length"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pl_tx_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Transaction"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier4" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pv_tx_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="11289371892371289398172397818974589273459879283718923798127"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pb_labels"
+        app:layout_constraintTop_toTopOf="@+id/barrier4" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="pl_tx_id,pv_tx_id"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pl_tx_block"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Transaction block"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier5" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pv_tx_block"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1125"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pb_labels"
+        app:layout_constraintTop_toTopOf="@+id/barrier5" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="pl_tx_block,pv_tx_block"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pl_tx_at"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Transaction included"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier6" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pv_tx_at"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="31/12/2019 5:01 AM"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pb_labels"
+        app:layout_constraintTop_toTopOf="@+id/barrier6" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="pl_tx_at,pv_tx_at"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Ericsson AB
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LockerDetailsFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/locker_images"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:backgroundTint="@color/primaryDarkColor"
+                />
+
+            <eu.sofie_iot.smaug.mobile.ui.views.LockerView
+                android:id="@+id/locker_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:showIcon="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locker_images" />
+
+            <LinearLayout
+                android:id="@+id/locker_icons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locker_view">
+
+                <!-- TODO: the margintop is manual, should find proper way to get the desired alignment -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/locker_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-8dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:text="&lt;10m"
+                    android:textColor="@color/secondaryDarkColor"
+                    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+                    android:visibility="visible"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:id="@+id/locker_seen_ble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="16dp"
+                    android:baselineAlignBottom="true"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/ic_baseline_bluetooth_24"
+                    app:tint="@color/secondaryDarkColor" />
+
+                <ImageView
+                    android:id="@+id/locker_seen_nfc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="16dp"
+                    android:baselineAlignBottom="true"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/ic_baseline_nfc_24"
+                    app:tint="@color/secondaryDarkColor" />
+
+                <ImageView
+                    android:id="@+id/locker_seen_be"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="16dp"
+                    android:baselineAlignBottom="true"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/ic_baseline_cloud_24"
+                    app:tint="@color/secondaryDarkColor" />
+
+                <!--        <ImageView-->
+                <!--            android:id="@+id/locker_favourite_icon_on"-->
+                <!--            android:layout_width="wrap_content"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:layout_marginTop="0dp"-->
+                <!--            android:layout_marginEnd="8dp"-->
+                <!--            android:baselineAlignBottom="true"-->
+                <!--            android:visibility="visible"-->
+                <!--            app:srcCompat="@drawable/ic_baseline_favorite_24"-->
+                <!--            app:tint="@color/primaryColor" />-->
+
+                <!--        <ImageView-->
+                <!--            android:id="@+id/locker_favourite_icon_off"-->
+                <!--            android:layout_width="wrap_content"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:layout_marginTop="0dp"-->
+                <!--            android:layout_marginEnd="8dp"-->
+                <!--            android:baselineAlignBottom="true"-->
+                <!--            android:visibility="visible"-->
+                <!--            app:srcCompat="@drawable/ic_baseline_favorite_border_24"-->
+                <!--            app:tint="@color/primaryColor" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/locker_rents"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:padding="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locker_icons">
+
+                <eu.sofie_iot.smaug.mobile.ui.views.RentedUntilView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dp"
+                    android:elevation="2dp"/>
+            </LinearLayout>
+
+            <!--    <eu.sofie_iot.smaug.mobile.ui.views.RentedUntilView-->
+            <!--        android:id="@+id/rent_view"-->
+            <!--        android:layout_width="0dp"-->
+            <!--        android:layout_height="wrap_content"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintTop_toBottomOf="@+id/locker_view" />-->
+
+            <eu.sofie_iot.smaug.mobile.ui.views.LockerStatusView
+                android:id="@+id/status_view"
+                android:layout_width="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locker_rents" />
+
+            <eu.sofie_iot.smaug.mobile.ui.views.HistoryView
+                android:id="@+id/history_rv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/rounded"
+                android:backgroundTint="@color/secondaryLightColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/status_view"
+                />
+
+            <!--    <androidx.recyclerview.widget.RecyclerView-->
+            <!--        android:id="@+id/history_rv"-->
+            <!--        android:backgroundTint="@color/secondaryColor"-->
+            <!--        android:layout_width="0dp"-->
+            <!--        android:layout_height="0dp"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        app:layout_constraintTop_toBottomOf="@id/status_view"-->
+            <!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+            <!--    <LinearLayout-->
+            <!--        android:visibility="invisible"-->
+            <!--        android:id="@+id/history_list"-->
+            <!--        android:layout_width="0dp"-->
+            <!--        android:layout_height="wrap_content"-->
+            <!--        android:layout_marginTop="8dp"-->
+            <!--        android:orientation="vertical"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintTop_toBottomOf="@+id/status_view">-->
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/textView3"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body2"-->
+            <!--            android:text="Sample history line" />-->
+            <!--    </LinearLayout>-->
+
+            <!-- action bar -->
+
+            <!-- map -->
+
+            <!-- history -->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/locker_rent_now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/rent_this_locker"
+        android:textColor="@color/primaryTextColor"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/open_bid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/primaryTextColor"
+        android:visibility="gone"
+        android:text="Here be open bid information (placeholder)"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

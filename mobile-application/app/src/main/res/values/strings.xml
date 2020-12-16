@@ -1,0 +1,84 @@
+<!--
+  ~ Copyright 2020 Ericsson AB
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<resources>
+    <string name="app_name">SMAUG</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="rent_until">Rented until</string>
+    <string name="rent_expired">Rent ended</string>
+    <string name="rent_future">Rented from</string>
+    <string name="automatic_toggle">Default</string>
+    <string name="open_only">Open</string>
+    <string name="close_only">Close</string>
+    <string name="check_only">Query</string>
+    <string name="open_help_no_rent">You have not rented this locker.</string>
+    <string name="open_help_close">To open this locker, please just tap the phone on the locker at the NFC symbol. To close the locker, just push the door closed and it will lock automatically.</string>
+    <string name="open_help_close_delay">To open this locker, please just tap the phone on the locker at the NFC symbol. To close the locker, wait a few seconds after opening and then just push the door closed and it will lock automatically.</string>
+    <string name="open_help_open_close">To open this locker, please just tap the phone on the locker at the NFC symbol. To close the locker, please just tap again.</string>
+    <string name="active_rentals">My lockers</string>
+    <string name="no_active_rentals">No rentals</string>
+    <string name="nearby_lockers">Nearby lockers</string>
+    <string name="cost">Cost</string>
+    <string name="payment_in_progress">Payment in progress</string>
+    <string name="cancel">Cancel</string>
+    <string name="pay">Confirm payment</string>
+    <string name="view">View</string>
+    <string name="about_text" formatted="false"><![CDATA[
+## SMAUG - Secure Marketplace for Access to Ubiquitous Goods\n
+
+This is the SMAUG mobile application, intended for **demonstration purposes only**. This
+is not a finished application, and it is **not intended for production use**.
+
+Please see [SMAUG repository on SOFIE project GitHub](https://github.com/SOFIE-project/)
+for more information related to SMAUG and the SOFIE EU project.
+
+SMAUG has been brought to you by Antonio Antonino, Filippo Vimini, Mikko Mustonen
+and Santeri Paavolainen from Ericsson Finland Oy.
+
+\n### License\n
+
+All of SMAUG, including this mobile application, is released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+        ]]>
+    </string>
+    <string name="third_party_licenses">Third party licenses</string>
+    <string name="rent_for">Rent for ...</string>
+    <string name="rent_this_locker">Rent this locker</string>
+    <string name="history_empty">No history</string>
+
+    <plurals name="length_minutes">
+        <item quantity="one">minute</item>
+        <item quantity="other">minutes</item>
+    </plurals>
+
+    <plurals name="length_hours">
+        <item quantity="one">hour</item>
+        <item quantity="other">hours</item>
+    </plurals>
+
+    <plurals name="history_many">
+        <item quantity="zero">No history</item>
+        <item quantity="one">One history entry</item>
+        <item quantity="other">%d history entries</item>
+    </plurals>
+
+    <string name="eth_secondary">(%.4f ETH, exchange rate %.2f €/ETH)</string>
+    <string name="eth_primary">(%.4f €, exchange rate %.2f €/ETH)</string>
+    <string name="no_lockers_found">No lockers found, maybe a plumbing problem?</string>
+</resources>

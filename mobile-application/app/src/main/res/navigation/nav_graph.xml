@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 Ericsson AB
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_history"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_settings"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_locker"
+            app:destination="@id/lockerDetailsFragment" />
+        <action
+            android:id="@+id/action_search"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_about"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_demo"
+            app:destination="@id/demoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lockerDetailsFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.LockerDetailsFragment"
+        android:label="Locker details"
+        tools:layout="@layout/fragment_locker_details">
+        <action
+            android:id="@+id/action_payment"
+            app:destination="@id/paymentFragment" />
+        <action
+            android:id="@+id/action_open_close"
+            app:destination="@id/openCloseFragment"
+            app:popUpTo="@id/lockerDetailsFragment" />
+        <action android:id="@+id/action_payment_pending"
+            app:destination="@id/paymentPendingFragment" />
+        <argument
+            android:name="locker"
+            app:argType="eu.sofie_iot.smaug.mobile.ui.LockerIdentifier" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_lockerDetailsFragment"
+            app:destination="@id/lockerDetailsFragment" />
+        <argument
+            android:name="search"
+            app:argType="eu.sofie_iot.smaug.mobile.ui.SearchIdentifier" />
+    </fragment>
+    <fragment
+        android:id="@+id/openCloseFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.OpenCloseFragment"
+        android:label="Locker access"
+        tools:layout="@layout/fragment_open_close">
+        <argument
+            android:name="locker"
+            app:argType="eu.sofie_iot.smaug.mobile.ui.LockerIdentifier" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.PaymentFragment"
+        android:label="Payment"
+        tools:layout="@layout/fragment_payment">
+        <action
+            android:id="@+id/action_payment_pending"
+            app:destination="@id/paymentPendingFragment"
+            app:popUpTo="@id/lockerDetailsFragment"/>
+        <argument
+            android:name="locker"
+            app:argType="eu.sofie_iot.smaug.mobile.ui.LockerIdentifier" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentPendingFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.PaymentPendingFragment"
+        android:label="Payment pending"
+        tools:layout="@layout/fragment_payment_pending" >
+        <argument
+            android:name="bid"
+            app:argType="eu.sofie_iot.smaug.mobile.ui.BidIdentifier" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.views.AboutFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/action_licenses"
+            app:destination="@id/licensesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/demoFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.DemoFragment"
+        android:label="Custom view demonstration"
+        tools:layout="@layout/fragment_view_demo" />
+    <fragment
+        android:id="@+id/licensesFragment"
+        android:name="eu.sofie_iot.smaug.mobile.ui.LicensesFragment"
+        android:label="Third party licenses"
+        tools:layout="@layout/fragment_licenses" />
+</navigation>
